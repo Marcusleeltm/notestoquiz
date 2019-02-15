@@ -1,0 +1,25 @@
+<notes>
+    <Def id="1">
+        <module>IAI</module>
+        <tags>Artificial Intelligence</tags>
+        <description>Artificial Intelligence is the theory and development of computer systems able to perform tasks normally requiring human intelligence, such as visual perception, speech recognition, decision-making, and translation between languages.
+        </description>
+    </Def>
+    <Def id="2">
+        <module>IAI</module>
+        <tags>Natural Language Processing</tags>
+        <description>Natural Language Processing is the application of computational techniques to the analysis and synthesis of natural language and speech.
+        </description>
+    </Def>
+    <Def id="5">
+        <module>IMG</module>
+        <tags>SWOT</tags>
+        <description>SWOT analysis is a process that identifies an organization's strengths, weaknesses, opportunities and threats.</description>
+    </Def>
+    <Def id="6">
+        <module>IMG</module>
+        <tags>Ansoff Matrix</tags>
+        <description>The Ansoff Matrix is a strategic planning tool that provides a framework to help executives, senior managers, and marketers devise strategies for future growth.
+        </description>
+    </Def>
+    <Def id="7"><module>IDB</module><tags>Normalization</tags><description>Normalization is the process of resturcturing a relational database in accordance with a series of so-called normal forms in order to reduce data redundancy and improve data integrity</description></Def><Def id="7"><module>IDB</module><tags>Entity Relationship Diagram</tags><description>An entity&#8211;relationship model describes interrelated things of interest in a specific domain of knowledge. A basic ER model is composed of entity types and specifies relationships that can exist between instances of those entity types.</description></Def></notes>

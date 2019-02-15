@@ -1,0 +1,362 @@
+# Reference Notedb.py
+#: import main main
+#: import ListAdapter kivy.adapters.listadapter.ListAdapter
+#: import ListItemButton kivy.uix.listview.ListItemButton
+
+
+<MCQPopup>:
+    size_hint: .5, .5
+    orientation: "vertical"
+    title: "Multiple Choice Question"
+    title_font: "Roboto-BoldItalic"
+
+
+    BoxLayout:
+        orientation: "vertical"
+        size_hint: (1, None)
+        height: 200
+        TextInput:
+            size_hint: (1, None)
+            height: 120
+            text: "Label"
+            text_font: "Roboto-BoldItalic"
+            id: question
+            multiline: True
+            disabled: True
+        BoxLayout:
+            orientation: "vertical"
+            size_hint: (1, None)
+            height: 100
+            Button:
+                text: "A."
+                font_name: "Roboto-BoldItalic"
+                id: A
+                on_press: root.mcqcheck(0)
+
+            Button:
+                text: "B."
+                font_name: "Roboto-BoldItalic"
+                id: B
+                on_press: root.mcqcheck(1)
+            Button:
+                text: "C."
+                font_name: "Roboto-BoldItalic"
+                id: C
+                on_press: root.mcqcheck(2)
+            Button:
+                text: "D."
+                font_name: "Roboto-BoldItalic"
+                id: D
+                on_press: root.mcqcheck(3)
+<WarningPopup>:
+    size_hint: .5,.2
+    Button:
+        text: "okay"
+        font_name: "Roboto-BoldItalic"
+        id: warning
+        on_press: root.dismiss()
+
+<SubjectivePopup>:
+    size_hint:.4,.5
+    orientation:"vertical"
+    title: "Subjective Question"
+    title_Font:"Roboto-BoldItalic"
+    BoxLayout:
+        orientation: "vertical"
+        TextInput:
+            size_hint:(1,None)
+            height: 180
+            text: "done"
+            title_Font:"Roboto-BoldItalic"
+            id: txt
+            disabled: True
+        Button:
+            text: "Show Answer"
+            font_name:"Roboto-BoldItalic"
+            on_press: root.Subjective_Answer()
+        Button:
+            text: "Done"
+            font_name: "Roboto-BoldItalic"
+            on_press: root.dismiss()
+
+
+<TextPopup>:
+    size_hint:.4,.4
+    orientation:"vertical"
+    BoxLayout:
+        orientation: "vertical"
+        TextInput:
+            size_hint:(1,None)
+            height: 150
+            text: "Done"
+            title_Font:"Roboto-BoldItalic"
+            id: txt
+            disabled: True
+        Button:
+            text: "Done"
+            font_name:"Roboto-BoldItalic"
+            on_press: root.dismiss()
+
+
+<RemoveWordsPopup>:
+    size_hint: .5, .6
+    orientation: "vertical"
+    title: "Fill in the Blanks"
+    title_Font:"Roboto-BoldItalic"
+    BoxLayout:
+        orientation: "vertical"
+        TextInput:
+            text: "Label"
+            multiline: True
+            disabled: True
+            id: Q
+        BoxLayout:
+            orientation: "vertical"
+            Label:
+                text: "A."
+                font_name:"Roboto-BoldItalic"
+                id: A
+            Label:
+                text: "B."
+                font_name:"Roboto-BoldItalic"
+                id: B
+            Label:
+                text: "C."
+                font_name:"Roboto-BoldItalic"
+                id: C
+            Label:
+                text: "D."
+                font_name:"Roboto-BoldItalic"
+                id: D
+            Label:
+                text: "E."
+                font_name:"Roboto-BoldItalic"
+                id: E
+            BoxLayout:
+                orientation: "horizontal"
+                Button:
+                    text: "Show answer"
+                    id: S
+                    on_press: root.RWAnswer()
+                Button:
+                    text: "Done"
+                    on_press: root.dismiss()
+
+<TrueFalsePopup>:
+    size_hint: .5, .5
+    title: "True or False?"
+    BoxLayout:
+        orientation: "vertical"
+        TextInput:
+            size_hint: (1, None)
+            height: 200
+            text: "Label"
+            multiline: True
+            disabled: True
+            id: L
+        BoxLayout:
+            orientation: "horizontal"
+            Button:
+                text: "True"
+                id: T
+                on_press: root.TFcheck(0)
+            Button:
+                text: "False"
+                id: F
+                on_press: root.TFcheck(1)
+<ViewPopup>:
+    size_hint: .5, .5
+    BoxLayout:
+        orientation: "vertical"
+        title: "The Popup"
+        title_font:"Roboto-BoldItalic"
+        BoxLayout:
+            Label:
+                text: "Module"
+                label_font:"Roboto-BoldItalic"
+                size:(100,35)
+                size_hint: (None,None)
+            TextInput:
+                id: module
+                disabled: True
+
+        BoxLayout:
+            Label:
+                text: "Title"
+                size:(100,35)
+                size_hint: (None,None)
+            TextInput:
+                id: tags
+                disabled: True
+        TextInput:
+            size_hint: 1.0, 4.0
+            multiline: True
+            disabled: True
+            id: definitionNote
+
+        BoxLayout:
+            Button:
+                text: "ok"
+                on_press: root.dismiss()
+
+
+<NewPopup>:
+    size_hint: .5, .5
+    module_text_input: module
+    tags_text_input: tags
+    definitionNote_text_input: definitionNote
+    title: "Add New Note"
+    title_font: "Roboto-BoldItalic"
+
+    BoxLayout:
+        orientation: "vertical"
+        auto_dismiss: False
+        title: "The Popup"
+        BoxLayout:
+            Label:
+                text: "Module"
+                size:(100,35)
+                size_hint: (None,None)
+            TextInput:
+                id: module
+        BoxLayout:
+            Label:
+                text: "Title"
+                size:(100,35)
+                size_hint: (None,None)
+            TextInput:
+                id: tags
+        TextInput:
+            size_hint: 1.0, 4.0
+            multiline: True
+            id: definitionNote
+
+        BoxLayout:
+            Button:
+                text: "save"
+                on_press: root.save_new_note()
+            Button:
+                text: "cancel"
+                on_press: root.dismiss()
+
+<EditPopup>
+    size_hint: .7,.5
+    module_text_input: module
+    tags_text_input: tags
+    definitionNote_text_input: definitionNote
+
+    BoxLayout:
+        orientation: "vertical"
+        auto_dismiss: False
+        title: "The Popup"
+        BoxLayout:
+            Label:
+                text: "Module"
+                size:(100,35)
+                size_hint: (None,None)
+            TextInput:
+                id: module
+                disabled: True
+        BoxLayout:
+            Label:
+                text: "Title"
+                size:(100,35)
+                size_hint: (None,None)
+            TextInput:
+                id: tags
+                disabled: True
+        TextInput:
+            size_hint: 1.0, 4.0
+            multiline: True
+            id: definitionNote
+
+        BoxLayout:
+            Button:
+                text: "save"
+                on_press: root.editnote(tags)
+                on_press: root.dismiss()
+            Button:
+                text: "cancel"
+                on_press: root.dismiss()
+
+
+NoteDB:
+<NoteDB>:
+    orientation: "vertical"
+    note_list: notes_list_view
+    title: "Notes to Quiz"
+    title_Font:"Roboto-BoldItalic"
+    BoxLayout:
+        size_hint_y: None
+        height: "30dp"
+
+
+        Button:
+            text: "New"
+            font_name : "Roboto-BoldItalic"
+            size_hint_x: 15
+            on_press: root.new_note()
+        Button:
+            text: "View"
+            font_name : "Roboto-BoldItalic"
+            size_hint_x: 15
+            on_press: root.view_note()
+        Spinner:
+            text: "Quiz"
+            font_name : "Roboto-BoldItalic"
+            size_hint_x: 15
+            values:['Subjective', 'Blanks', 'True/False', 'Random']
+            id: quiz_spinner
+            on_text: root.quiz_note(quiz_spinner.text)
+        Button:
+            text: "Edit"
+            font_name : "Roboto-BoldItalic"
+            size_hint_x: 15
+            on_press: root.edit_note()
+        Button:
+            text: "Delete"
+            corners: 20,20,20,20
+            font_name : "Roboto-BoldItalic"
+            size_hint_x: 15
+            on_press: root.delete_note()
+        Spinner:
+            text: "Folder"
+            font_name : "Roboto-BoldItalic"
+            size_hint_x: 15
+            values: []
+            id: spinner_id
+            on_text: root.change_folder(spinner_id.text)
+        Button:
+            text: "All"
+            font_name : "Roboto-BoldItalic"
+            size_hint_x: 15
+            on_press: root.refresh()
+
+    BoxLayout:
+        size_hint_y: None
+        height: "30dp"
+        Button:
+            text: "Search"
+            font_name : "Roboto-Bold"
+            size_hint_x: 4
+            id: search_button
+            on_press: root.search(search_input.text)
+
+        TextInput:
+            size_hint_x: 20
+            height: "100dp"
+            id: search_input
+            multiline: False
+
+    BoxLayout:
+        orientation: "vertical"
+
+        ListView:
+            id: notes_list_view
+            adapter:
+                ListAdapter(data=[],  args_converter=lambda row_index, an_obj: {'text': an_obj,'size_hint_y': None,'height': 55}, cls=main.NoteListButton)
+
+        Label:
+            size_hint_y: None
+            height: 20
+            text: "Notes To Quiz (February 2018)                       Created by : Marcus Lee (TP038611)"
